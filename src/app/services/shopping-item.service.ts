@@ -23,9 +23,40 @@ export class ShoppingItemService {
   }
  
 
-constructor() { 
-  this._items = [];
-  this._isEmpty = true;
-}
+  constructor() { 
+    this._items = [];
+    this._isEmpty = true;
+  }
+
+  addItem(item: string){
+      this._items.push(item);
+      this._isEmpty = false; // comprovar que el campo no este vacio
+  }
+
+  //Metodo para recorrer un bucle y eliminar un dato del arreglo
+  removeItem(item: string){
+    let index = this._items.findIndex(it => it === item); //Identificamos la posicion del elemento
+    this._items.splice(index, 1); // Eliminamos la posicion de item
+
+    if(this._items.length === 0){
+      this._isEmpty = true;
+    }
+  }
+
+  removeAllItems(){
+    this._items = [];
+    this._isEmpty = true;
+  }
+
+  existItem(item: string){
+
+    const itemFound  = this._items.find(it => it.toLowerCase().trim() === item.toLowerCase().trim());
+    if(itemFound){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
 
 }
