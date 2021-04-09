@@ -6,6 +6,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <form (ngSubmit)="addItem()">
+    <ion-item>
+      <ion-label>Add Item</ion-label>
+      <ion-input type="text" placeholder="Item" [(ngModel)]="item" name="item"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" fill="clear" shape="round">
+      Añadir Item
+    </ion-button>
+  </form>
   
 </ion-content>
